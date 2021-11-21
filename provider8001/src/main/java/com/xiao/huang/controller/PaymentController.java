@@ -37,7 +37,7 @@ public class PaymentController {
         return new CommonResult(200,"插入成功 ， 端口为 ："+serverPort,s);
     }
 
-    @GetMapping("")
+    @GetMapping("/payment/get")
     public String success(){
         return "成功";
     }
