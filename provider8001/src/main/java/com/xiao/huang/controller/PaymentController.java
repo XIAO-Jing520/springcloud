@@ -20,6 +20,7 @@ public class PaymentController {
     @Resource
     private PaymentService paymentService;
 
+    //增加
     //获取端口号
     @Value("${server.port}")
     private String serverPort;
@@ -36,7 +37,7 @@ public class PaymentController {
         return new CommonResult(200,"插入成功 ， 端口为 ："+serverPort,s);
     }
 
-    @GetMapping("")
+    @GetMapping("/payment/get")
     public String success(){
         return "成功";
     }
