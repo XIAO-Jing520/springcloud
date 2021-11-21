@@ -1,0 +1,19 @@
+server:
+  port: 8001
+
+spring:
+  datasource:
+    # type: com.alibaba.druid.pool.DruidDataSource
+    #driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://192.168.81.63:3306/springcloud?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  configuration:
+    #开启驼峰匹配
+    map-underscore-to-camel-case: true
+
+  mapper-locations: mapper/*.xml
+
