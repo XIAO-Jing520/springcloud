@@ -20,6 +20,7 @@ public class PaymentController {
     @Resource
     private PaymentService paymentService;
 
+    //增加
     //获取端口号
     @Value("${server.port}")
     private String serverPort;
