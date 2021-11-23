@@ -5,7 +5,6 @@ import com.xiao.bean.CommonResult;
 import com.xiao.bean.Payment;
 import com.xiao.huang.service.PaymentService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,23 +28,7 @@ public class PaymentController {
     @GetMapping("/discovery")
     public Object discovery(){
 
-        //获取注册时的服务名
         List<String> services = discoveryClient.getServices();
-
-        for (String service : services) {
-            System.out.println("service = " + service);
-        }
-
-        //
-        List<ServiceInstance> instances = discoveryClient.getInstances("PROVIDER-ORDER-EUREKA");
-
-        for (ServiceInstance instance : instances) {
-            System.out.println("instance.getHost() = " + instance.getHost());
-            System.out.println("instance.getMetadata() = " + instance.getMetadata());
-            System.out.println("instance.getPort() = " + instance.getPort());
-            System.out.println("-------------------------------------");
-        }
-
         return null;
     }
 
