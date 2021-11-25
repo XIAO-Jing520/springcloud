@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace指用户自定义的命名空间。 -->
-<mapper namespace="com.xiao.com.xiao.PaymentDao">
+<mapper namespace="com.xiao.huang.dao.PaymentDao">
 
 <!--    <select id="createPayment" useGeneratedKeys="true" keyProperty="id" resultType="java.lang.Integer">-->
     <insert id="createPayment" useGeneratedKeys="true" keyColumn="id"  keyProperty="id" parameterType="com.xiao.bean.Payment" >

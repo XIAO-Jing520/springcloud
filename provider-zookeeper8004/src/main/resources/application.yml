@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 8004
 
 spring:
   datasource:
@@ -9,11 +9,15 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: provider-zookeeper8004
+  cloud:
+    zookeeper:
+      connect-string: 192.168.81.63:2181
 
 mybatis:
+  mapper-locations: mapper/*.xml
   configuration:
     #开启驼峰匹配
     map-underscore-to-camel-case: true
-  mapper-locations: mapper/*.xml
-
 

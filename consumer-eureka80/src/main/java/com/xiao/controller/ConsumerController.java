@@ -1,4 +1,4 @@
-package xiao.controller;
+package com.xiao.controller;
 
 import com.xiao.bean.CommonResult;
 import com.xiao.bean.Payment;
