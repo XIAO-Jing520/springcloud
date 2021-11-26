@@ -5,7 +5,7 @@ spring:
     name: consul-consumer
   cloud:
     consul:
-      host: 192.168.81.63
+      host: 127.0.0.1
       port: 8500
       discovery:
         service-name: ${spring.application.name}
