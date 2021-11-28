@@ -35,7 +35,6 @@ public class PaymentController {
         for (String service : services) {
             System.out.println("service = " + service);
         }
-
         //
         List<ServiceInstance> instances = discoveryClient.getInstances("PROVIDER-ORDER-EUREKA");
 
@@ -52,27 +51,25 @@ public class PaymentController {
     @PostMapping("/payment/create")
     public CommonResult create(@RequestBody Payment payment) {
 
-
         String s = paymentService.createPayment(payment);
-
         System.out.println("s = " + s);
-
         return new CommonResult(200, "插入成功 ， 端口为 ：" + serverPort, s);
     }
 
     @GetMapping("/payment/get/{id}")
     public CommonResult success(@PathVariable Integer id) {
 
-
         Payment payment = paymentService.getPayment(id);
-
-
-        if (payment != null)
+        if (payment != null) {
             return new CommonResult(200, "查询成功,端口为： " + serverPort, payment);
-
-
+        }
         return new CommonResult(404, "查询失败,端口为： " + serverPort, "没有 id 记录");
+    }
+    //自定义负载均衡算法
 
+    @GetMapping("/payment/lb")
+    public String myLoadB(){
+        return  "serverPort = " + serverPort;
     }
 
 }

@@ -49,13 +49,20 @@ public class PaymentController {
 
         Payment payment = paymentService.getPayment(id);
 
-
-        if (payment != null)
+        if (payment != null) {
             return new CommonResult(200, "查询成功,端口为： " + serverPort, payment);
-
+        }
 
         return new CommonResult(404, "查询失败,端口为： " + serverPort, "没有 id 记录");
 
+    }
+
+
+    //自定义负载均衡算法
+
+    @GetMapping("/payment/lb")
+    public String myLoadB(){
+       return  "serverPort = " + serverPort;
     }
 
 }

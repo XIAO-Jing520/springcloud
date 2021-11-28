@@ -12,14 +12,14 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableEurekaClient
 @SpringBootApplication
-@RibbonClient(name = "PROVIDER-ORDER-EUREKA",configuration = Rule.class)
+//@RibbonClient(name = "PROVIDER-ORDER-EUREKA",configuration = Rule.class)
 public class ConsumerEureka80 {
     public static void main(String[] args) {
         SpringApplication.run(ConsumerEureka80.class);
     }
 
     @Bean
-    @LoadBalanced      //注解赋予RestTemplate负载均衡的能力
+//    @LoadBalanced      //注解赋予RestTemplate负载均衡的能力
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }
