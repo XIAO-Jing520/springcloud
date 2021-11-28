@@ -3,9 +3,9 @@
 <!-- namespace指用户自定义的命名空间。 -->
 <mapper namespace="com.xiao.huang.dao.PaymentDao">
 
-<!--    <select id="createPayment" useGeneratedKeys="true" keyProperty="id" resultType="java.lang.Integer">-->
+    <!--    <select id="createPayment" useGeneratedKeys="true" keyProperty="id" resultType="java.lang.Integer">-->
     <insert id="createPayment" useGeneratedKeys="true" keyColumn="id"  keyProperty="id" parameterType="com.xiao.bean.Payment" >
-       insert into tb_payment (info) values (#{info});
+        insert into tb_payment (info) values (#{info});
     </insert>
 
 

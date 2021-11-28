@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 public class PaymentController {
@@ -70,6 +71,17 @@ public class PaymentController {
     @GetMapping("/payment/lb")
     public String myLoadB(){
         return  "serverPort = " + serverPort;
+    }
+
+    @GetMapping("/payment/timeout")
+    public String timeout(){
+
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "超时响应";
     }
 
 }

@@ -6,12 +6,26 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * @program: ${PROJECT_NAME}
+ * @description: ${description}
+ * @author: Mr.Wang
+ * @create: ${YEAR}-${MONTH}-${DAY} ${HOUR}:${MINUTE}
+ **/
 
 @Component
 public class MyLoadBalancer implements ILoadBalancer {
 
     private AtomicInteger atomicInteger = new AtomicInteger(0);
 
+    /**
+     * @Description: todo
+     * @Author: 肖苏伦
+     * @Date: 2021-11-29 1:04
+     * @Param null:
+     * @return: null
+     * @Version: 1.0
+     **/
     public final int next() {
 
 /*        int next;
