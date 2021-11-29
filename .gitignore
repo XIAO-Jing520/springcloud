@@ -1,3 +1,17 @@
 # Project exclude paths
 /common-bean/target/
 /provider8001/target/
+idea
+*.iml
+out
+gen
+/.apt_generated/
+/.classpath
+/.factorypath
+/.project
+/.settings/
+/.springBeans
+/target/
+/.gitignore
+/user-profile-analysis.iml
+/.idea
