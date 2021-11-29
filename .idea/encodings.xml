@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/common-bean/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer-consul80/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer-consul80/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer-dubbo80/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer-dubbo80/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer-eureka-ribbon81/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer-eureka-ribbon81/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer-eureka-ribboncustom80/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer-eureka-ribboncustom80/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer-feign82/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer-feign82/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer-zookeeper80/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer-zookeeper80/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer80/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer80/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-single6001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-single6001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka6001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka6001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka6002/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka6002/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider-consul8006/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider-consul8006/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider-dubbo8005/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider-dubbo8005/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider-eureka8001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider-eureka8001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider-eureka8002/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider-eureka8002/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider-zookeeper8004/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider-zookeeper8004/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider8001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider8001/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

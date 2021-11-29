@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="provider-eureka8001" />
+        <module name="eureka-single6001" />
+        <module name="provider-eureka8002" />
+        <module name="consumer-zookeeper80" />
+        <module name="provider-zookeeper8004" />
+        <module name="consumer-feign82" />
+        <module name="consumer-eureka80q" />
+        <module name="common-bean" />
+        <module name="provider-dubbo8005" />
+        <module name="conaumer-dubbo80" />
+        <module name="eureka6002" />
+        <module name="provider-consul8006" />
+        <module name="euraka6001" />
+        <module name="consumer80" />
+        <module name="sonsumer-consul80" />
+        <module name="provider8001" />
+        <module name="consumer-eureka-ribboncustom80" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="consumer-eureka80" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
