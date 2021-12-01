@@ -21,7 +21,18 @@ feign:
         connectTimeout: 5000
         readTimeout: 5000
   hystrix:
-    enabled: false
+    enabled: true    #开启Feign的hystrix，这样配置文件中的hystrix的配置才会生效，否则依然是默认的规则
+
+##超时时间配置，此处全局超时配置时间大于@HystrixProperty配置时间后，@HystrixProperty注解中的超时才生效
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 2000
+
+
 #
 ##设置feign客户端超时时间(OpenFeign默认支持ribbon)
 #ribbon:

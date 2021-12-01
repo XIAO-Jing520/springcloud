@@ -1,5 +1,8 @@
 package com.xiao.huang.service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.xiao.bean.CommonResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -14,11 +17,15 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @Version : 1.0
  **/
 @Component
-@FeignClient(value = "PROVIDER-ORDER-EUREKA")
+//@FeignClient(value = "PROVIDER-ORDER-EUREKA")
+@FeignClient(value = "PROVIDER-ORDER-EUREKA", fallback = HystrixTestServiceImpl.class)  //业务层使用服务降级，进行代码解耦
+
 public interface HystrixTestService {
+
 
     @GetMapping("/payment/timeout")
     public String timeout();
+
     @GetMapping("/payment/get/{id}")
     CommonResult get(@PathVariable("id") Integer id);
 

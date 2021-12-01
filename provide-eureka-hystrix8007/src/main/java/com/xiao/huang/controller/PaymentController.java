@@ -71,4 +71,9 @@ public class PaymentController {
 
         return hystrixTestService.timeout();
     }
+
+    @GetMapping("/payment/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id){
+        return hystrixTestService.paymentCircuitBreaker(id);
+    }
 }
