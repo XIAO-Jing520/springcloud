@@ -1,0 +1,13 @@
+package com.xiao.huang;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+@SpringBootApplication
+@EnableEurekaClient
+public class ProviderEureka8002App {
+    public static void main(String[] args) {
+        SpringApplication.run(ProviderEureka8002App.class);
+    }
+}

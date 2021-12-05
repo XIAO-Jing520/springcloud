@@ -14,7 +14,6 @@ mybatis:
   configuration:
     #开启驼峰匹配
     map-underscore-to-camel-case: true
-
   mapper-locations: mapper/*.xml
 
 

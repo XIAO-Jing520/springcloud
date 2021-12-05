@@ -1,0 +1,31 @@
+server:
+  port: 8006
+spring:
+  application:
+    name: consul-provider
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        register: true # 是否需要注册
+        instance-id: ${spring.application.name}-01 # 注册实例id(必须唯一)
+        prefer-ip-address: true #是否使用ip地址注册
+        health-check-url: http://${spring.cloud.client.ip-address}:${server.port}/actuator/health
+#        service-name: ${spring.application.name} # 服务名称
+#        port: ${server.port} # 服务端口
+#        ip-address: ${spring.cloud.client.ip-address} # 服务请求ip
+
+  datasource:
+    # type: com.alibaba.druid.pool.DruidDataSource
+    #driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://192.168.81.63:3306/springcloud?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  configuration:
+    #开启驼峰匹配
+    map-underscore-to-camel-case: true
+  mapper-locations: mapper/*.xml

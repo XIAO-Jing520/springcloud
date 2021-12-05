@@ -1,0 +1,26 @@
+#!/usr/bin/expect -f
+set ip [lindex $argv 0]
+set uname [lindex $argv 1]
+set pwd [lindex $argv 2]
+set timeout -1
+spawn ssh $uname@$ip
+
+#expect
+#{
+##  "*(yes/no)*" { send "yes\n"}
+#  "*password:" {send "$pwd\r"}
+#}
+#"*yes/no" { send "yes\r"; exp_continue }
+expect {
+"*password:" {send "$pwd\r"}
+}
+###不能放在一行
+# exp_continue #当问题不存在时继续回答下边的问题
+#expect "*password:"
+#send "$pwd\r"
+expect "*#"
+send "exit\n"
+#interact
+expect eof
+
+

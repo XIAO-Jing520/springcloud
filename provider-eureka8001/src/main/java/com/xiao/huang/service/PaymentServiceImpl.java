@@ -15,11 +15,7 @@ public class PaymentServiceImpl implements PaymentService{
     @Override
     public String createPayment(Payment payment) {
 
-
-
         paymentDao.createPayment(payment);
-
-
         System.out.println("生成的主键为： " + payment.getId());
         return "插入成功"+payment.getId();
     }
