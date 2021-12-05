@@ -1,0 +1,25 @@
+#!/usr/bin/expect
+spawn ssh root@192.168.82.26
+expect
+{
+	"*(yes/no)*"
+	{
+		 send "yes\n"
+		 expect "password:"
+		 send "dingjia@2017!@\r"
+	}
+	"*password:"
+	{
+	   send "dingjia@2017!@\r"
+	}
+}
+expect "*#"  send "logout\r"
+expect eof
+
+
+#!/usr/bin/expect
+spawn ssh root@192.168.82.26
+expect "*password:"
+send "dingjia@2017!@\r"
+expect "*#"
+expect eof
