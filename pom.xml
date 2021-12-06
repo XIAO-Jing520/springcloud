@@ -36,6 +36,7 @@
         <module>hystrix-dashboard</module>
         <module>provider-eureka-nodatabase8001</module>
         <module>linuxlogin</module>
+        <module>gateway9527</module>
     </modules>
     <!--  必不可少，不需要src文件夹，有个继承关系  代表父工程 ddd  -->
     <packaging>pom</packaging>
