@@ -10,3 +10,4 @@ for ((i = 0; i < $length; i++)); do
   ./open.sh ${n[$i]} $uname $pwd
   echo "end..."
 done
+

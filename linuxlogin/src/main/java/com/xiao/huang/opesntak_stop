@@ -1,0 +1,7 @@
+#!/bin/bash
+#此脚本只适用于批量关起虚拟机示例，根据IP
+#status="start"
+status="stop" #这里填写start或者stop
+for i in $(cat ip.txt); do
+  nova "$status" "$(nova list --all | grep -w "$i" | awk '{print $2}')" && sleep 1 && echo "---此""$i""机器已经$(nova list --all | grep -w "$i" | awk '{print $12}')"
+done

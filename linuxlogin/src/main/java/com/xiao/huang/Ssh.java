@@ -113,14 +113,16 @@ public class Ssh {
         String[] ips = new String[]{"192.168.82.29", "192.168.82.26", "192.168.82.190",
                 "192.168.82.191", "192.168.82.192", "192.168.82.193", "192.168.82.194",
                 "192.168.82.187", "192.168.82.188", "192.168.82.189", "192.168.82.184",
-                "192.168.82.180", "192.168.82.185"};
+                "192.168.82.180", "192.168.82.185","192.168.82.131"};
 
         for (String ip : ips) {
             connection = login(ip, "root", "dingjia@2017!@");
             System.out.println("ip = " + ip);
             System.out.println("connection = " + connection);
-            String pwd = execute(connection, "ls");
-            System.out.println("pwd = " + pwd);
+            String pwd = execute(connection, "/etc/init.d/neutron-linuxbridge-agent restart");
+
+//            String pwd = execute(connection, "df -HT");
+            System.out.println("pwd = "+ pwd);
             connection.close();
             System.out.println("-------------------------------------");
         }
