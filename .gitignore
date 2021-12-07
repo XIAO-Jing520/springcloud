@@ -1,6 +1,4 @@
 # Project exclude paths
-/common-bean/target/
-/provider8001/target/
 idea
 *.iml
 out
