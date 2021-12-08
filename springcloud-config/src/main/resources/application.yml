@@ -16,12 +16,14 @@ spring:
 #          password: Lunsuxiao8#
       ####读取分支
       label: master
-##rabbitmq相关配置
-#rabbitmq:
-#  host: localhost
-#  port: 5672
-#  username: guest
-#  password: guest
+
+##引入 rabbitmq
+  rabbitmq:
+    host: 192.168.81.63
+    port: 5672
+    username: guest
+    password: guest
+
 
 #服务注册到eureka地址
 eureka:
@@ -30,10 +32,8 @@ eureka:
       defaultZone: http://host1:6001/eureka
 
 ###rabbitmq相关配置,暴露bus刷新配置的端点
-#management:
-#  endpoints: #暴露bus刷新配置的端点
-#    web:
-#      exposure:
-#        include: 'bus-refresh'
-
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
