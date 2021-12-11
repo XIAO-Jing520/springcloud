@@ -19,13 +19,15 @@ import java.util.UUID;
 public class MessageProviderImpl implements IMessageProvider
 {
     @Resource
-    private MessageChannel output; // 消息发送管道
+    private MessageChannel outputProvider; // 定义消息发送管道
 
     @Override
     public String send()
     {
         String serial = UUID.randomUUID().toString();
-        output.send(MessageBuilder.withPayload(serial).build());
+        //主要实现发送
+        outputProvider.send(MessageBuilder.withPayload(serial).build());
+
         System.out.println("*****serial: "+serial);
         return null;
     }

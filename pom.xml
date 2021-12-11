@@ -40,8 +40,6 @@
         <module>springcloud-config</module>
         <module>springcloud-agent</module>
         <module>springcloud-agent2</module>
-        <module>springcloud-stream-provider</module>
-        <module>springcloud-stream-consumer</module>
         <module>springcloud-stream-consumer8002</module>
     </modules>
     <!--  必不可少，不需要src文件夹，有个继承关系  代表父工程 ddd  -->
