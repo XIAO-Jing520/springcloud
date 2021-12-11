@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: 8002
 
 spring:
   rabbitmq:
@@ -9,7 +9,7 @@ spring:
     password: guest
     virtual-host: /                      #解决org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: connect
   application:
-    name: cloud-stream-provider
+    name: cloud-stream-consumer
 
   cloud:
     stream:
@@ -26,11 +26,11 @@ spring:
                 virtual-host: /                    #解决org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: connect
 
       bindings: # 服务的整合处理
-        output: #     这个名字是一个通道的名称，代表输出管道 名字和package org.springframework.cloud.stream.messaging; 这里面的默认的一致
+        input: # 这个名字是一个通道的名称，代表输出管道
           destination: studyExchange #        表示要使用的Exchange名称定义
           content-type: application/json # 设置消息类型，本次为json，文本则设置“text/plain”
           default-binder: defaultRabbit  # 设置要绑定的消息服务的具体设置
-
+          group:  xiao              #避免消息重复消费,只能消费一次   //其实就是交换器绑定一个队列，默认两个消费者绑定两个队列/ 并且开启队列持久化
 eureka:
   client: # 客户端进行Eureka注册的配置
     service-url:
@@ -38,7 +38,7 @@ eureka:
   instance:
     lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
     lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
-    instance-id: cloud-stream-provider  # 在信息列表时显示主机名称
+    instance-id: cloud-stream-consumer  # 在信息列表时显示主机名称
     prefer-ip-address: true     # 访问的路径变为IP地址
 
 
