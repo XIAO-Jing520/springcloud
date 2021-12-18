@@ -18,7 +18,7 @@
 
 
     <dependencies>
-        <!--SpringCloud ailibaba nacos -->
+<!--        SpringCloud ailibaba nacos-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -28,7 +28,7 @@
             <groupId>com.alibaba.csp</groupId>
             <artifactId>sentinel-datasource-nacos</artifactId>
         </dependency>
-        <!--SpringCloud ailibaba sentinel -->
+<!--        SpringCloud ailibaba sentinel-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
