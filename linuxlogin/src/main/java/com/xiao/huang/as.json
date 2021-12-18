@@ -1,0 +1,20 @@
+{
+  "jsonrpc": "2.0",
+  "method": "job.notify",
+  "params": {
+    "agent": "backup.oracle.linux-x86",
+    "host_id": "4214deb881fd87232d327be846703311",
+    "id": "5be41d325f0011ec8000fa163e707933",
+    "name": "Oracle \u5B8C\u5168\u5907\u4EFD\u4F5C\u4E1A5",
+    "processed_size": 4131373056,
+    "progress": 90,
+    "source_id": "8ed3a0e25ee111ec8000fa163e707933",
+    "speed": 13281962,
+    "state": "running",
+    "subtype": "full",
+    "total_size": 4561305600,
+    "type": "backup",
+    "uid": "2ef7c73278e2458e872ec8cf32177be2"
+  }
+}
+
