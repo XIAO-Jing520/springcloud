@@ -6,9 +6,9 @@ spring:
     name: seata-storage-service
   cloud:
     alibaba:
-#      seata:
-#        #自定义事务组名称需要与seata-server中的对应
-#        tx-service-group: xiao
+      seata:
+        #自定义事务组名称需要与seata-server中的对应
+        tx-service-group: xiao
     nacos:
       discovery:
         server-addr: 192.168.81.63:8848
