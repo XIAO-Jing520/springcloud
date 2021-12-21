@@ -2,3 +2,6 @@
 
 1.右键复制 springboot copy conguration   
 2. vmoptions ： -Dserver.port=端口号
+
+36362   38388
+2. vmoptions ： -Dserver.port=端口号

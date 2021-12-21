@@ -95,7 +95,7 @@ public class Ssh {
             BufferedReader br = new BufferedReader(new InputStreamReader(stdout, charset));
             String line = null;
             while ((line = br.readLine()) != null) {
-                buffer.append(line + "n");
+                buffer.append(line + "\n");
             }
         } catch (UnsupportedEncodingException e) {
             log.error("解析脚本出错：" + e.getMessage());
@@ -126,6 +126,7 @@ public class Ssh {
             connection.close();
             System.out.println("-------------------------------------");
         }
+
 
 
     }
