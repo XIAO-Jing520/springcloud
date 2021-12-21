@@ -36,6 +36,18 @@
         <module>hystrix-dashboard</module>
         <module>provider-eureka-nodatabase8001</module>
         <module>linuxlogin</module>
+        <module>gateway9527</module>
+        <module>springcloud-config</module>
+        <module>springcloud-agent</module>
+        <module>springcloud-agent2</module>
+        <module>springcloud-stream-consumer8002</module>
+        <module>springcloud-alibaba-provider7000</module>
+        <module>springcloud-alibaba-consumer7001</module>
+        <module>springcloud-alibaba-config</module>
+        <module>springcloud-alibaba-sentinel</module>
+        <module>springcloud-seata-order</module>
+        <module>springcloud-seata-storage</module>
+        <module>springcloud-seata-account</module>
     </modules>
     <!--  必不可少，不需要src文件夹，有个继承关系  代表父工程 ddd  -->
     <packaging>pom</packaging>
@@ -115,7 +127,7 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.1.0.RELEASE</version>
+                <version>2.2.0.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
