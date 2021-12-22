@@ -1,5 +1,6 @@
 package xiao.com.huang.bean;
 
+
 public class Order {
     private Long id;
 
@@ -59,5 +60,17 @@ public class Order {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", productId=" + productId +
+                ", count=" + count +
+                ", money=" + money +
+                ", status=" + status +
+                '}';
     }
 }

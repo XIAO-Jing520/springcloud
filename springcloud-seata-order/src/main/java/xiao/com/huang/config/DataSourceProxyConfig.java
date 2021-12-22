@@ -1,3 +1,4 @@
+/*
 package xiao.com.huang.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
@@ -13,11 +14,13 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
 
+*/
 /**
  * @Author Milo
  * @Description
  * @Date 2020-05-15 16:38
- **/
+ **//*
+
 @Configuration
 public class DataSourceProxyConfig {
 
@@ -45,3 +48,4 @@ public class DataSourceProxyConfig {
     }
 
 }
+*/

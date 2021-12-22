@@ -1,7 +1,10 @@
 package xiao.com.huang.dao;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import xiao.com.huang.bean.Account;
 
+@Mapper
 public interface AccountMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +17,6 @@ public interface AccountMapper {
     int updateByPrimaryKeySelective(Account record);
 
     int updateByPrimaryKey(Account record);
+
+    void cost(@Param("userId") Long userId, @Param("money") Long money);
 }

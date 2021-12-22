@@ -15,7 +15,8 @@ import org.springframework.cloud.openfeign.FeignClient;
  **/
 @EnableDiscoveryClient
 @EnableFeignClients
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)//取消数据源的自动创建
+//@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)//取消数据源的自动创建
+@SpringBootApplication
 public class OrderApp {
     public static void main(String[] args) {
         SpringApplication.run(OrderApp.class);

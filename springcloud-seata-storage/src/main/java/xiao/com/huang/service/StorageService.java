@@ -9,5 +9,5 @@ import xiao.com.huang.bean.Storage;
  * @Version : 1.0
  **/
 public interface StorageService {
-    public void decrease(Storage storage) ;
+    public void decrease(Long productId,Integer amounts) ;
 }

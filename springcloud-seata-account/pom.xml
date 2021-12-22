@@ -22,7 +22,7 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
         <!--seata-->
-        <dependency>
+       <!-- <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
             <exclusions>
@@ -36,7 +36,7 @@
             <groupId>io.seata</groupId>
             <artifactId>seata-all</artifactId>
             <version>1.4.0</version>
-        </dependency>
+        </dependency>-->
         <!--feign-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

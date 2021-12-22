@@ -21,7 +21,7 @@ public class StorageServiceImpl implements StorageService{
     StorageMapper storageMapper;
 
     @Override
-    public void decrease(Storage storage) {
-        storageMapper.updateByPrimaryKeySelective(storage);
+    public void decrease(Long productId, Integer amounts) {
+        storageMapper.decrease(productId,  amounts);
     }
 }
