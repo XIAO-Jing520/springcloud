@@ -1,5 +1,6 @@
 package xiao.com.huang.service;
 
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Service;
 import xiao.com.huang.bean.Order;
 import xiao.com.huang.dao.OrderMapper;
@@ -23,6 +24,7 @@ public class OrderServiceImpl implements OrderService {
     private StorageService storageService;
 
     @Override
+    @GlobalTransactional(name = "fsp-create-order",rollbackFor = Exception.class)
     public void create(Order order) {
         System.out.println("order.toString() = " + order.toString());
         orderMapper.insert(order);

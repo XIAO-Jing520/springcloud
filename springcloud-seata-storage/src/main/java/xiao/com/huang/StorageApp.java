@@ -12,8 +12,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @Version : 1.0
  **/
 @EnableDiscoveryClient
-//@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)//取消数据源的自动创建
-@SpringBootApplication
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)//取消数据源的自动创建
+//@SpringBootApplication
 public class StorageApp {
     public static void main(String[] args) {
         SpringApplication.run(StorageApp.class);

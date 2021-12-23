@@ -1,4 +1,4 @@
-package xiao.com.huang;
+package xiao.com.huang.controller;
 
 import com.xiao.bean.CommonResult;
 import org.springframework.web.bind.annotation.PostMapping;

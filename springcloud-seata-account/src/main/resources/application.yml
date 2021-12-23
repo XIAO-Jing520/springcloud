@@ -5,28 +5,58 @@ spring:
   application:
     name: seata-account-service
   cloud:
-#    alibaba:
-#      seata:
-#        #自定义事务组名称需要与seata-server中的对应
-#        tx-service-group: xiao
+    alibaba:
+      seata:
+        #自定义事务组名称需要与seata-server中的对应
+        tx-service-group: my_tx_group
     nacos:
       discovery:
         server-addr: 192.168.81.63:8848
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.81.63:3306/seata_account?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://192.168.81.63:3306/seata_storage?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: 123456
+
+seata:
+  enabled: true
+  enable-auto-data-source-proxy: true
+  tx-service-group: my_tx_group
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      serverAddr: 192.168.81.63:8848
+      group: SEATA_GROUP
+      namespace: seata
+      username: nacos
+      password: nacos
+  config:
+    type: nacos
+    nacos:
+      serverAddr: 192.168.81.63:8848
+      group: SEATA_GROUP
+      namespace: seata
+      username: nacos
+      password: nacos
+
+  service:
+    vgroup-mapping:
+      my_tx_group: xiao
+    disable-global-transaction: false
+  client:
+    rm:
+      report-success-enable: false
+
 
 feign:
   hystrix:
     enabled: false
 
-#logging:
-#  level:
-#    io:
-#      seata: info
+logging:
+  level:
+    io:
+      seata: info
 
 mybatis:
   mapperLocations: classpath:mybatis/mapper/*.xml
-
