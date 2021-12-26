@@ -8,10 +8,12 @@ spring:
 #    alibaba:
 #      seata:
 #        #自定义事务组名称需要与seata-server中的对应
-#        tx-service-group: default_tx_group
+#        tx-service-group: my_tx_group
     nacos:
       discovery:
         server-addr: 192.168.81.63:8848
+        group: SEATA_GROUP
+        namespace: seata
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.81.63:3306/seata_storage?useUnicode=true&characterEncoding=utf-8&useSSL=false
@@ -20,12 +22,13 @@ spring:
 
 seata:
   enabled: true
-#  enable-auto-data-source-proxy: true
+  application-id: seataAddr
+  enable-auto-data-source-proxy: true
   tx-service-group: my_tx_group
   registry:
     type: nacos
     nacos:
-      application: seata-server
+      application: seataAddr
       server-addr: 192.168.81.63:8848
       group: SEATA_GROUP
       namespace: seata
@@ -47,6 +50,7 @@ seata:
   client:
     rm:
       report-success-enable: false
+
 
 
 feign:

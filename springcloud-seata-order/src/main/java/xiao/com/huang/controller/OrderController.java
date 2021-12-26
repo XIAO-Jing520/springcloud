@@ -32,7 +32,7 @@ public class OrderController {
 
     @PostMapping("/order/create")
 
-    public CommonResult create(  @RequestBody Order order) {
+    public CommonResult create( Order order) {
 
         orderService.create(order);
         return new CommonResult(200, "创建成功");
