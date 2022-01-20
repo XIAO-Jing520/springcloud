@@ -15,24 +15,139 @@ spring:
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
-      # 此处省略其他配置
-      # 配置StatFilter
-      web-stat-filter:
-        #默认为false，设置为true启动
-        enabled: true
-        url-pattern: "/*"
-        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
-      #配置StatViewServlet
-      stat-view-servlet:
-        url-pattern: "/druid/*"
-        #允许那些ip
-#        login-username: admin
-#        login-password: 123
-        #是否可以重置
-        reset-enable: false
-        #启用
-        enabled: true
+      # 配置初始化大小、最小、最大
+      initial-size: 5
+      minIdle: 10
+      max-active: 20
+      # 配置获取连接等待超时的时间(单位：毫秒)
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 2000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 600000
+      max-evictable-idle-time-millis: 900000
+      # 用来测试连接是否可用的SQL语句,默认值每种数据库都不相同,这是mysql
+      validationQuery: select 1
+      # 应用向连接池申请连接，并且testOnBorrow为false时，连接池将会判断连接是否处于空闲状态，如果是，则验证这条连接是否可用
+      testWhileIdle: true
+      # 如果为true，默认是false，应用向连接池申请连接时，连接池会判断这条连接是否是可用的
+      testOnBorrow: false
+      # 如果为true（默认false），当应用使用完连接，连接池回收连接的时候会判断该连接是否还可用
+      testOnReturn: false
+      # 是否缓存preparedStatement，也就是PSCache。PSCache对支持游标的数据库性能提升巨大，比如说oracle
+      poolPreparedStatements: true
+      # 要启用PSCache，必须配置大于0，当大于0时， poolPreparedStatements自动触发修改为true，
+      # 在Druid中，不会存在Oracle下PSCache占用内存过多的问题，
+      # 可以把这个数值配置大一些，比如说100
+      maxOpenPreparedStatements: 20
+      # 连接池中的minIdle数量以内的连接，空闲时间超过minEvictableIdleTimeMillis，则会执行keepAlive操作
+      keepAlive: true
+      # Spring 监控，利用aop 对指定接口的执行时间，jdbc数进行记录
+      aop-patterns: "com.springboot.template.dao.*"
+      ########### 启用内置过滤器（第一个 stat必须，否则监控不到SQL）##########
+      filters: stat,wall,slf4j
 
+      # 自己配置监控统计拦截的filter
+      filter:
+        # 开启druiddatasource的状态监控
+        stat:
+          enabled: true
+          db-type: mysql
+          # 开启慢sql监控，超过2s 就认为是慢sql，记录到日志中
+          log-slow-sql: true
+          slow-sql-millis: 2000
+        # 日志监控，使用slf4j 进行日志输出
+        slf4j:
+          enabled: true
+          statement-log-error-enabled: true
+          statement-create-after-log-enabled: false
+          statement-close-after-log-enabled: false
+          result-set-open-after-log-enabled: false
+          result-set-close-after-log-enabled: false
+      ########## 配置WebStatFilter，用于采集web关联监控的数据 ##########
+      web-stat-filter:
+        enabled: true                   # 启动 StatFilter
+        url-pattern: /*                 # 过滤所有url
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*" # 排除一些不必要的url
+        session-stat-enable: true       # 开启session统计功能
+        session-stat-max-count: 1000    # session的最大个数,默认100
+      ########## 配置StatViewServlet（监控页面），用于展示Druid的统计信息 ##########
+      stat-view-servlet:
+        enabled: true                   # 启用StatViewServlet
+        url-pattern: /druid/*           # 访问内置监控页面的路径，内置监控页面的首页是/druid/index.html
+        reset-enable: false              # 不允许清空统计数据,重新计算
+        login-username: root            # 配置监控页面访问密码
+        login-password: 123
+        allow: 127.0.0.1           # 允许访问的地址，如果allow没有配置或者为空，则允许所有访问
+        deny:                                        # 拒绝访问的地址，deny优先于allow，如果在deny列表中，就算在allow列表中，也会被拒绝
+
+#      ############################Druid 数据源连接池配置################################
+#      #我们还可以在 Spring Boot 的配置文件中对 Druid 数据源连接池进行配置，
+#      initial-size: 5                                                                 #初始化连接大小
+#      min-idle: 5                                                                     #最小连接池数量
+#      max-active: 20                                                                  #最大连接池数量
+#      max-wait: 60000                                                                 #获取连接时最大等待时间，单位毫秒
+#      time-between-eviction-runs-millis: 60000                                        #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+#      min-evictable-idle-time-millis: 300000                                          #配置一个连接在池中最小生存的时间，单位是毫秒
+#      validation-query: SELECT 1 FROM DUAL                                            #测试连接
+#      test-while-idle: true                                                           #申请连接的时候检测，建议配置为true，不影响性能，并且保证安全性
+#      test-on-borrow: false                                                           #获取连接时执行检测，建议关闭，影响性能
+#      test-on-return: false                                                           #归还连接时执行检测，建议关闭，影响性能
+#      pool-prepared-statements: false                                                 #是否开启PSCache，PSCache对支持游标的数据库性能提升巨大，oracle建议开启，mysql下建议关闭
+#      max-pool-prepared-statement-per-connection-size: 20                             #开启poolPreparedStatements后生效
+#
+#      ###################################Druid 监控配置###################################
+#      #我们还可以在 Spring Boot 的配置文件中对 Druid 内置监控页面、Web-JDBC 关联监控和 Spring 监控等功能进行配置，
+#
+#      filters: stat,wall                                                              #配置扩展插件，常用的插件有=>stat:监控统计  wall:防御sql注入
+#      connection-properties: 'druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000' #通过connectProperties属性来打开mergeSql功能;慢SQL记录
+#      # StatViewServlet配置，说明请参考Druid Wiki，配置_StatViewServlet配置
+#      stat-view-servlet:
+#        enabled: true                                                                 #是否开启内置监控页面，默认值为 false
+#        url-pattern: '/druid/*'                                                       #StatViewServlet 的映射路径，即内置监控页面的访问地址
+#        reset-enable: false                                                           #是否启用重置按钮
+#        login-username: admin                                                         #内置监控页面的登录页用户名 username
+#        login-password: admin                                                         #内置监控页面的登录页密码 password
+##        allow:
+##        deny:
+#
+#      # WebStatFilter配置，说明请参考Druid Wiki，配置_配置WebStatFilter
+#      web-stat-filter:
+#        enabled: true                                                                 #是否开启内置监控中的 Web-jdbc 关联监控的数据
+#        url-pattern: '/*'                                                             #匹配路径
+#        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'                     #排除路径                                                    #是否监控session
+#        session-stat-enable: true
+#
+#      # Spring监控配置，说明请参考Druid Github Wiki，配置_Druid和Spring关联监控配置
+#      aop-patterns: net.biancheng.www.*                                               #Spring监控AOP切入点，如x.y.z.abc.*,配置多个英文逗号分隔
+#
+#      #######################################Druid 内置 Filter 配置#######################################3
+#      #Druid Spring Boot Starter 对以下 Druid 内置 Filter，都提供了默认配置：
+#      #StatFilter
+#      #WallFilter
+#      #ConfigFilter
+#      #EncodingConvertFilter
+#      #Slf4jLogFilter
+#      #Log4jFilter
+#      #Log4j2Filter
+#      #CommonsLogFilter
+#
+#      # 对配置已开启的 filters 即 stat(sql 监控)  wall（防火墙）
+#      filter:
+#        #配置StatFilter (SQL监控配置)
+#        stat:
+#          enabled: true                                                               #开启 SQL 监控
+#          slow-sql-millis: 1000                                                       #慢查询
+#          log-slow-sql: true                                                          #记录慢查询 SQL
+#
+#        #配置WallFilter (防火墙配置)
+#        wall:
+#          enabled: true                                                               #开启防火墙
+#          config:
+#            update-allow: true                                                        #允许更新操作
+#            drop-table-allow: false                                                   #禁止删表操作
+#            insert-allow: true                                                        #允许插入操作
+#            delete-allow: true                                                        #删除数据操作
 
 mybatis:
   configuration:

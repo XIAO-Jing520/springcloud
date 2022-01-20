@@ -7,15 +7,22 @@ import com.xiao.huang.service.PaymentService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.sql.DataSource;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @RestController
 public class PaymentController {
 
+    @Resource
+    DataSource dataSource;
+    @Resource
+    JdbcTemplate jdbcTemplate;
     @Resource
     DiscoveryClient discoveryClient;
 
@@ -74,7 +81,16 @@ public class PaymentController {
     }
 
     @GetMapping("/payment/timeout")
-    public String timeout(){
+    public String timeout() throws SQLException {
+
+
+        System.out.println("dataSource = " + dataSource.getClass());
+
+        System.out.println("dataSource.getConnection() = " + dataSource.getConnection());
+
+        Integer i = jdbcTemplate.queryForObject("select count(*) from tb_payment", Integer.class);
+
+        System.out.println("i = " + i);
 
         try {
             TimeUnit.SECONDS.sleep(3);
