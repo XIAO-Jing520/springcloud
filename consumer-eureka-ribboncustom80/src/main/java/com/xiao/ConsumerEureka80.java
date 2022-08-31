@@ -10,6 +10,9 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * @author xiaosulun
+ */
 @EnableEurekaClient
 @SpringBootApplication
 //@RibbonClient(name = "PROVIDER-ORDER-EUREKA",configuration = Rule.class)

@@ -40,22 +40,23 @@ public class MyLoadBalancer implements ILoadBalancer {
         System.out.println("----------------这个是第几次访问: " + next);
         return next;*/
 
-        for (;;){
-            int current=this.atomicInteger.get();
+        for (; ; ) {
+            int current = this.atomicInteger.get();
             int next;
-            next=current+1;
-            if (atomicInteger.compareAndSet(current,next)) {
+            next = current + 1;
+            if (atomicInteger.compareAndSet(current, next)) {
                 return next;
             }
         }
 
     }
-    /*
-    * 通过获取index 返回一个服务实例
-    * */
+
+    /**
+     * 通过获取index 返回一个服务实例
+     **/
     @Override
-    public ServiceInstance instance (List < ServiceInstance > instances) {
-        int index=next()%instances.size();
+    public ServiceInstance instance(List<ServiceInstance> instances) {
+        int index = next() % instances.size();
         return instances.get(index);
     }
 }

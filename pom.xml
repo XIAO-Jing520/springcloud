@@ -48,6 +48,7 @@
         <module>springcloud-seata-order</module>
         <module>springcloud-seata-storage</module>
         <module>springcloud-seata-account</module>
+        <module>consumer_eureka</module>
     </modules>
     <!--  必不可少，不需要src文件夹，有个继承关系  代表父工程 ddd  -->
     <packaging>pom</packaging>
