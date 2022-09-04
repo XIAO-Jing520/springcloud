@@ -28,8 +28,9 @@ public class HystrixTestService {
 
         String RandomID = UUID.randomUUID().toString();
 
-//        int i=10/0;
-        int time = 3000;
+        int i=10/0;
+        System.out.println("i = " + i);
+        int time = 1;
         try {
             TimeUnit.MILLISECONDS.sleep(time);
         } catch (InterruptedException e) {
@@ -45,7 +46,8 @@ public class HystrixTestService {
     }
 
 
-    @HystrixCommand(fallbackMethod = "paymentCircuitBreaker_fallback",commandProperties = {
+    @HystrixCommand(fallbackMethod = "paymentCircuitBreaker_fallback", //兜底方法
+            commandProperties = {
             @HystrixProperty(name = "circuitBreaker.enabled",value = "true"),// 是否开启断路器
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "10"),// 请求次数
             @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds",value = "10000"), // 时间窗口期

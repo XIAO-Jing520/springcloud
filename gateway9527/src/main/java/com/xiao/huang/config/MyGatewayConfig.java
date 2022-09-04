@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date : 2021-12-07 1:05
  * @Version : 1.0
  **/
-@Configuration
+//@Configuration
 public class MyGatewayConfig {
 
     @Bean

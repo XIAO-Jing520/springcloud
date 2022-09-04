@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class HystrixTestServiceImpl implements HystrixTestService{
     @Override
     public String timeout() {
-        return "进入 timeout 方法服务降级---------------";
+        return "进入 timeout 方法服务降级---------------抽离";
     }
 
     @Override

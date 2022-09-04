@@ -17,6 +17,9 @@ import javax.annotation.Resource;
 import java.net.URI;
 import java.util.List;
 
+/**
+ * @author xiaosulun
+ */
 @RestController
 @Slf4j
 public class ConsumerController {
@@ -25,7 +28,7 @@ public class ConsumerController {
     private RestTemplate restTemplate;
 
     @Resource
-    private ILoadBalancer myLoadBalancer;
+    private ILoadBalancer practiceLoad;
 
     @Resource
     private DiscoveryClient discoveryClient;
@@ -69,7 +72,7 @@ public class ConsumerController {
         if (instances == null || instances.size() == 0) {
             return null;
         }
-        ServiceInstance instance = myLoadBalancer.instance(instances);
+        ServiceInstance instance = practiceLoad.instance(instances);
         //获取 该服务主机的 url
         URI uri = instance.getUri();
         System.out.println("uri = " + uri);

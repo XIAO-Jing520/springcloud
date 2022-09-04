@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Component
 //@FeignClient(value = "PROVIDER-ORDER-EUREKA")
 @FeignClient(value = "PROVIDER-ORDER-EUREKA", fallback = HystrixTestServiceImpl.class)  //业务层使用服务降级，进行代码解耦
-
 public interface HystrixTestService {
 
 

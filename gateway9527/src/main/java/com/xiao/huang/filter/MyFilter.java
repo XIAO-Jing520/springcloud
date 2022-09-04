@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
  * @Date : 2021-12-07 2:10
  * @Version : 1.0
  **/
-@Component
+//@Component
 public class MyFilter implements GlobalFilter, Ordered {
 
     @Override

@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @create: ${YEAR}-${MONTH}-${DAY} ${HOUR}:${MINUTE}
  **/
 
-@Component
+//@Component
 public class MyLoadBalancer implements ILoadBalancer {
 
     private AtomicInteger atomicInteger = new AtomicInteger(0);
@@ -44,6 +44,7 @@ public class MyLoadBalancer implements ILoadBalancer {
             int current = this.atomicInteger.get();
             int next;
             next = current + 1;
+            //比较并交换，比较当前拿到的值和内存中的值，如果相等就更新
             if (atomicInteger.compareAndSet(current, next)) {
                 return next;
             }

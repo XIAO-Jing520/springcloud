@@ -12,7 +12,6 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableEurekaClient
 @SpringBootApplication
-//@RibbonClient(name = "PROVIDER-ORDER-EUREKA",configuration = Rule.class)
 @RibbonClient(name = "PROVIDER-ORDER-EUREKA",configuration = Rule.class)
 public class ConsumerEureka81 {
 

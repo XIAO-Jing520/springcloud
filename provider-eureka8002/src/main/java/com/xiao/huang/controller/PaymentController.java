@@ -67,7 +67,7 @@ public class PaymentController {
     @GetMapping("/payment/timeout")
     public String timeout(){
         try {
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.SECONDS.sleep(6);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
