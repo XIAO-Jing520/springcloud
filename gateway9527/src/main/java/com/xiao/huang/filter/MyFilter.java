@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
  * @Date : 2021-12-07 2:10
  * @Version : 1.0
  **/
-//@Component
+@Component
 public class MyFilter implements GlobalFilter, Ordered {
 
     @Override
@@ -24,9 +24,8 @@ public class MyFilter implements GlobalFilter, Ordered {
 
         if (Integer.parseInt(id)<3) {
 
-//            System.out.println("太小-----------id = " + id);
-
-            System.out.println("---------------------------------");
+            System.out.println("太小-----------id = " + id);
+            System.out.println("----------------无法访问-----------------");
             exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);
             return exchange.getResponse().setComplete();
         }
@@ -35,7 +34,7 @@ public class MyFilter implements GlobalFilter, Ordered {
     }
 
 
-    //级别
+    //级别，越小，优先级越高
     @Override
     public int getOrder() {
         return 0;

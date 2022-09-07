@@ -18,6 +18,8 @@ public class MyGatewayConfig {
     public RouteLocator customUrl(RouteLocatorBuilder routeLocatorBuilder){
 
         RouteLocatorBuilder.Builder routes = routeLocatorBuilder.routes();
+
+        //访问 localhost:9527 + /lady  将转发到 https://news.baidu.com/lady
         return routes.route("id1",(r -> r.path("/lady").uri("https://news.baidu.com/lady"))).build();
 
 
