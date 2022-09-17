@@ -3,18 +3,14 @@ server:
   port: 8401
 
 spring:
+  application:
+    name: cloudalibaba-sentinel-service
   cloud:
     nacos:
       discovery:
         server-addr: 192.168.81.226:8848 #Nacos服务注册中心地址
-#    sentinel:
-#      transport:
-#        client-ip: 192.168.81.226
-#        port: 8719
-#        dashboard: 192.168.81.226:8858
-  application:
-    name: cloudalibaba-sentinel
-      exposure:
+    sentinel:
+      transport:
         dashboard: 192.168.81.226:8858 #配置Sentinel dashboard地址
         port: 8719  #如被占用依次加一
 
@@ -30,7 +26,6 @@ spring:
 management:
   endpoints:
     web:
-#      include: '*'
       exposure:
         include: '*'
 
