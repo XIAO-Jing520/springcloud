@@ -3,11 +3,11 @@ server:
 
 spring:
   rabbitmq:
-    host: 192.168.81.63
-    port: 5672
-    username: guest
-    password: guest
-    virtual-host: /                      #解决org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: connect
+    host: 192.168.81.226
+    port: 5673
+    username: admin
+    password: admin
+    virtual-host: my_vhost                      #解决org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: connect
   application:
     name: cloud-stream-provider
 
@@ -16,20 +16,25 @@ spring:
       binders: # 在此处配置要绑定的rabbitmq的服务信息；
         defaultRabbit:          # 表示定义的名称，随便起名字 用于于binding整合
           type: rabbit # 消息组件类型
-          environment: # 设置rabbitmq的相关的环境配置
-            spring:
-              rabbitmq:
-                host: 192.168.81.63
-                port: 5672
-                username: guest
-                password: guest
-                virtual-host: /                    #解决org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: connect
+#          environment: # 设置rabbitmq的相关的环境配置
+#            spring:
+#              rabbitmq:
+#                host: 192.168.81.226
+#                port: 5673
+#                username: admin
+#                password: admin
+#                virtual-host: my_vhost                 #解决org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: connect
 
       bindings: # 服务的整合处理
-        output: #     这个名字是一个通道的名称，代表输出管道 名字和package org.springframework.cloud.stream.messaging; 这里面的默认的一致
-          destination: studyExchange #        表示要使用的Exchange名称定义
+        myoutput: #     这个名字是一个通道的名称，代表输出管道 名字和package org.springframework.cloud.stream.messaging; 这里面的默认的一致    	String OUTPUT = "output";
+          destination: studyExchangexiao #        表示要使用的Exchange名称定义
           content-type: application/json # 设置消息类型，本次为json，文本则设置“text/plain”
           default-binder: defaultRabbit  # 设置要绑定的消息服务的具体设置
+          ##开启分区支持
+          producer:
+            partitionKeyExpression: myPartitionKeyStrategy
+            partitionCount: 2
+
 
 eureka:
   client: # 客户端进行Eureka注册的配置

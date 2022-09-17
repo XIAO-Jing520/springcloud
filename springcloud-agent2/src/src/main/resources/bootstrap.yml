@@ -13,10 +13,11 @@ spring:
 
   ##引入 rabbitmq
   rabbitmq:
-    host: 192.168.81.63
-    port: 5672
-    username: guest
-    password: guest
+    host: 192.168.81.226
+    port: 5673
+    username: admin
+    password: admin
+    virtual-host: my_vhost
 
 #服务注册到eureka地址
 eureka:

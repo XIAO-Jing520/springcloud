@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 @RestController
 public class SendMessageController
 {
-    @Resource
+    @Resource(name = "messageProviderImpl")
     private IMessageProvider messageProvider;
 
     @GetMapping(value = "/sendMessage")

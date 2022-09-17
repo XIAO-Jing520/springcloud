@@ -1,5 +1,6 @@
 package com.xiao.huang.service;
 
+import com.xiao.huang.channel.MyChannel;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
@@ -14,14 +15,14 @@ import org.springframework.stereotype.Component;
  * @Version : 1.0
  **/
 @Component
-@EnableBinding(Sink.class)
+@EnableBinding(MyChannel.class)
 public class InputMessage {
 
 
     @Value("${server.port}")
     public String port;
 
-    @StreamListener(Sink.INPUT)
+    @StreamListener(MyChannel.MYINPUT)
     public void inputM(Message message) {
 
         System.out.println(message.getPayload()+"\t   port:  "+port);

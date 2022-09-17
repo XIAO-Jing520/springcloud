@@ -94,7 +94,7 @@ public class Test {
 
 
     @RequestMapping("/hotkey")
-    public String hotKey(@RequestParam(required = false,value = "a") String a,@RequestParam(required = false,value = "b") String b){
+    public String hotKey(@RequestParam(required = false, value = "a") String a, @RequestParam(required = false, value = "b") String b) {
 
 
         return "hot key";
